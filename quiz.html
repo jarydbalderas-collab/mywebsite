@@ -19,7 +19,7 @@
       <span class="nav-logo">JB</span>
       <div class="nav-links">
         <a href="index.html" class="nav-link">Home</a>
-        <a href="quiz.html" class="nav-link quiz-link active">🎵 What Song Am I?</a>
+        <a href="quiz.html" class="nav-link quiz-link active">What Song Am I?</a>
       </div>
     </div>
   </nav>
@@ -46,15 +46,14 @@
       <div class="answers-grid" id="answersGrid"></div>
     </div>
 
-    <button class="next-btn" id="nextBtn" disabled>Next →</button>
+    <button class="next-btn" id="nextBtn" disabled>Next</button>
 
     <div class="result-card" id="resultCard">
-      <div class="result-emoji" id="resultEmoji"></div>
       <div class="result-label">Your Song Is...</div>
       <div class="result-song" id="resultSong"></div>
       <div class="result-artist" id="resultArtist"></div>
       <div class="result-description" id="resultDescription"></div>
-      <button class="retake-btn" onclick="startQuiz()">🔁 Retake Quiz</button>
+      <button class="retake-btn" onclick="startQuiz()">Retake Quiz</button>
     </div>
 
   </div>
@@ -65,15 +64,11 @@
 
   <script src="main.js"></script>
   <script>
-    /* ============================================================
-       QUIZ DATA
-       Song keys: MJ, DRK, BLY, JLN, BCH, MRG, TYL, SWF
-    ============================================================ */
     const questions = [
       {
         text: "It's Friday night — what are you most likely doing?",
         answers: [
-          { text: "Dancing at a packed party",         scores: { MJ: 3, SWF: 2 } },
+          { text: "Dancing at a packed party",          scores: { MJ: 3, SWF: 2 } },
           { text: "Chilling and gaming / vibing solo",  scores: { DRK: 3, BLY: 2 } },
           { text: "Out on the town with your crew",     scores: { BCH: 2, MRG: 3 } },
           { text: "Grinding — working on your goals",   scores: { TYL: 3, JLN: 1 } },
@@ -91,43 +86,43 @@
       {
         text: "Someone disrespects you. How do you handle it?",
         answers: [
-          { text: "Ignore it — you're too focused on winning",   scores: { TYL: 3, DRK: 2 } },
-          { text: "Clap back with style and confidence",         scores: { MJ: 3, SWF: 2 } },
-          { text: "Take matters into your own hands 🔑",          scores: { JLN: 3, BCH: 1 } },
-          { text: "Laugh it off — drama ain't your thing",       scores: { MRG: 3, BLY: 1 } },
+          { text: "Ignore it — you're too focused on winning", scores: { TYL: 3, DRK: 2 } },
+          { text: "Clap back with style and confidence",       scores: { MJ: 3, SWF: 2 } },
+          { text: "Take matters into your own hands",          scores: { JLN: 3, BCH: 1 } },
+          { text: "Laugh it off — drama ain't your thing",     scores: { MRG: 3, BLY: 1 } },
         ]
       },
       {
         text: "Pick your ideal road trip soundtrack:",
         answers: [
-          { text: "80s classic rock bangers",            scores: { BCH: 3, MJ: 2 } },
-          { text: "Country hits with the windows down",  scores: { JLN: 3, MRG: 2 } },
-          { text: "Drake, The Weeknd, late-night R&B",   scores: { DRK: 2, BLY: 3 } },
-          { text: "High-energy rap & hip-hop",           scores: { TYL: 3, MRG: 1 } },
+          { text: "80s classic rock bangers",           scores: { BCH: 3, MJ: 2 } },
+          { text: "Country hits with the windows down", scores: { JLN: 3, MRG: 2 } },
+          { text: "Drake, The Weeknd, late-night R&B",  scores: { DRK: 2, BLY: 3 } },
+          { text: "High-energy rap and hip-hop",        scores: { TYL: 3, MRG: 1 } },
         ]
       },
       {
         text: "What's your relationship with success?",
         answers: [
-          { text: "I hustle for it every single day",       scores: { TYL: 3, MJ: 1 } },
-          { text: "It finds me — I just stay authentic",    scores: { MRG: 3, DRK: 2 } },
-          { text: "I celebrate every win, big or small",    scores: { SWF: 3, BCH: 2 } },
-          { text: "I refuse to let anyone dim my light",    scores: { BLY: 3, JLN: 2 } },
+          { text: "I hustle for it every single day",     scores: { TYL: 3, MJ: 1 } },
+          { text: "It finds me — I just stay authentic",  scores: { MRG: 3, DRK: 2 } },
+          { text: "I celebrate every win, big or small",  scores: { SWF: 3, BCH: 2 } },
+          { text: "I refuse to let anyone dim my light",  scores: { BLY: 3, JLN: 2 } },
         ]
       },
       {
         text: "Your friends would describe you as:",
         answers: [
-          { text: "The life of the party",          scores: { MJ: 3, SWF: 2 } },
-          { text: "The deep, thoughtful one",        scores: { BLY: 3, BCH: 2 } },
-          { text: "The loyal, real one",             scores: { DRK: 3, JLN: 2 } },
-          { text: "The wild card — unpredictable!",  scores: { MRG: 3, TYL: 1 } },
+          { text: "The life of the party",            scores: { MJ: 3, SWF: 2 } },
+          { text: "The deep, thoughtful one",          scores: { BLY: 3, BCH: 2 } },
+          { text: "The loyal, real one",               scores: { DRK: 3, JLN: 2 } },
+          { text: "The wild card — unpredictable!",    scores: { MRG: 3, TYL: 1 } },
         ]
       },
       {
         text: "Pick a late-night activity:",
         answers: [
-          { text: "Studio session / making art",       scores: { MJ: 2, TYL: 3 } },
+          { text: "Studio session or making art",      scores: { MJ: 2, TYL: 3 } },
           { text: "Deep convos under the stars",       scores: { BLY: 3, DRK: 2 } },
           { text: "Bonfire with country music",        scores: { JLN: 3, MRG: 2 } },
           { text: "Karaoke — belting your heart out",  scores: { BCH: 3, SWF: 2 } },
@@ -136,23 +131,23 @@
       {
         text: "What motivates you most in life?",
         answers: [
-          { text: "Proving the doubters wrong",          scores: { TYL: 3, MJ: 2 } },
-          { text: "Love, loyalty, and real connections", scores: { DRK: 3, JLN: 2 } },
-          { text: "Freedom and living on your terms",    scores: { MRG: 3, BCH: 2 } },
-          { text: "Joy — living your best life fully",   scores: { SWF: 3, BLY: 1 } },
+          { text: "Proving the doubters wrong",           scores: { TYL: 3, MJ: 2 } },
+          { text: "Love, loyalty, and real connections",  scores: { DRK: 3, JLN: 2 } },
+          { text: "Freedom and living on your terms",     scores: { MRG: 3, BCH: 2 } },
+          { text: "Joy — living your best life fully",    scores: { SWF: 3, BLY: 1 } },
         ]
       },
     ];
 
     const results = {
-      MJ:  { emoji: "🕺", song: "BEAT IT",             artist: "Michael Jackson",  description: "You are pure energy and confidence. You walk into any room and own it without even trying. Like the King of Pop himself, you bring people together and turn any moment into a performance. You're a natural-born leader who refuses to back down from a challenge." },
-      DRK: { emoji: "🦅", song: "GOD'S PLAN",          artist: "Drake",            description: "Loyalty is your currency. You're the person who shows up for the people you love without being asked, and you move through life with quiet confidence. You know your blessings and you don't take them for granted. Real ones gravitate toward you naturally." },
-      BLY: { emoji: "🌙", song: "BLINDING LIGHTS",     artist: "The Weeknd",       description: "You're mysterious, magnetic, and deeply emotional beneath a cool exterior. You feel everything intensely but keep your cards close. You live for those late-night drives and meaningful conversations. People are drawn to your depth without always knowing why." },
-      JLN: { emoji: "🤠", song: "BEFORE HE CHEATS",    artist: "Carrie Underwood", description: "You don't mess around. You've got a huge heart but cross you and you'll remind everyone exactly who they're dealing with. You're fiercely loyal, unapologetically authentic, and you know your worth — country roads or city streets, you carry yourself with conviction." },
-      BCH: { emoji: "🎸", song: "BOHEMIAN RHAPSODY",   artist: "Queen",            description: "You are one of a kind — dramatic, creative, and impossible to put in a box. You've got layers: funny, deep, theatrical, genuine. You live life as if it were a performance, and honestly? We're all just lucky to be in the audience." },
-      MRG: { emoji: "🏇", song: "OLD TOWN ROAD",       artist: "Lil Nas X",        description: "You blend worlds that nobody else thought to mix and make it look effortless. You're creative, genre-defying, and completely yourself no matter who's watching. You ride till you can't no more — and somehow that becomes the most iconic move in the room." },
-      TYL: { emoji: "🔥", song: "LOSE YOURSELF",       artist: "Eminem",           description: "This is your moment and you know it. You've worked too hard and sacrificed too much to let it slip away. You're relentless, focused, and driven by a fire that most people can't even see. When the opportunity comes, you seize it with everything you've got." },
-      SWF: { emoji: "✨", song: "SHAKE IT OFF",         artist: "Taylor Swift",     description: "Nothing gets you down for long. You've faced the haters, the drama, and the setbacks — and every time you come back dancing. You've got an infectious energy that lifts everyone around you, and you've learned that the best revenge is unbothered joy." },
+      MJ:  { song: "Beat It",            artist: "Michael Jackson",  description: "You are pure energy and confidence. You walk into any room and own it without even trying. Like the King of Pop himself, you bring people together and turn any moment into a performance. You're a natural-born leader who refuses to back down from a challenge." },
+      DRK: { song: "God's Plan",         artist: "Drake",            description: "Loyalty is your currency. You're the person who shows up for the people you love without being asked, and you move through life with quiet confidence. You know your blessings and you don't take them for granted. Real ones gravitate toward you naturally." },
+      BLY: { song: "Blinding Lights",    artist: "The Weeknd",       description: "You're mysterious, magnetic, and deeply emotional beneath a cool exterior. You feel everything intensely but keep your cards close. You live for those late-night drives and meaningful conversations. People are drawn to your depth without always knowing why." },
+      JLN: { song: "Before He Cheats",   artist: "Carrie Underwood", description: "You don't mess around. You've got a huge heart but cross you and you'll remind everyone exactly who they're dealing with. You're fiercely loyal, unapologetically authentic, and you know your worth — country roads or city streets, you carry yourself with conviction." },
+      BCH: { song: "Bohemian Rhapsody",  artist: "Queen",            description: "You are one of a kind — dramatic, creative, and impossible to put in a box. You've got layers: funny, deep, theatrical, genuine. You live life as if it were a performance, and honestly? We're all just lucky to be in the audience." },
+      MRG: { song: "Old Town Road",      artist: "Lil Nas X",        description: "You blend worlds that nobody else thought to mix and make it look effortless. You're creative, genre-defying, and completely yourself no matter who's watching. You ride till you can't no more — and somehow that becomes the most iconic move in the room." },
+      TYL: { song: "Lose Yourself",      artist: "Eminem",           description: "This is your moment and you know it. You've worked too hard and sacrificed too much to let it slip away. You're relentless, focused, and driven by a fire that most people can't even see. When the opportunity comes, you seize it with everything you've got." },
+      SWF: { song: "Shake It Off",       artist: "Taylor Swift",     description: "Nothing gets you down for long. You've faced the haters, the drama, and the setbacks — and every time you come back dancing. You've got an infectious energy that lifts everyone around you, and you've learned that the best revenge is unbothered joy." },
     };
 
     let currentQ = 0, selectedAnswer = null, scores = {};
@@ -217,7 +212,6 @@
       document.getElementById('nextBtn').style.display = 'none';
       document.getElementById('progressFill').style.width = '100%';
       document.getElementById('progressLabel').textContent = 'Complete!';
-      document.getElementById('resultEmoji').textContent = r.emoji;
       document.getElementById('resultSong').textContent = r.song;
       document.getElementById('resultArtist').textContent = '— ' + r.artist;
       document.getElementById('resultDescription').textContent = r.description;

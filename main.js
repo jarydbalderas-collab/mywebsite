@@ -2,7 +2,7 @@
    main.js – Jaryd Balderas Website
    - Floating particles
    - Scroll-reveal (IntersectionObserver)
-   - Sticky nav shrink on scroll
+   - Sticky nav darken on scroll
    - Smooth anchor scrolling
    ============================================================ */
 
@@ -14,7 +14,7 @@
   for (let i = 0; i < COUNT; i++) {
     const p = document.createElement('div');
     p.className = 'particle';
-    const size = Math.random() * 4 + 2; // 2–6px
+    const size = Math.random() * 3 + 1.5;
     p.style.cssText = `
       width: ${size}px;
       height: ${size}px;
@@ -33,10 +33,11 @@
   if (!items.length) return;
   const observer = new IntersectionObserver(
     (entries) => {
-      entries.forEach((entry, idx) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // stagger siblings in the same parent
-          const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal:not(.visible)'));
+          const siblings = Array.from(
+            entry.target.parentElement.querySelectorAll('.reveal:not(.visible)')
+          );
           const delay = siblings.indexOf(entry.target) * 80;
           setTimeout(() => {
             entry.target.classList.add('visible');
@@ -50,20 +51,20 @@
   items.forEach((el) => observer.observe(el));
 })();
 
-// ---- Nav shrink on scroll ----
+// ---- Nav darken on scroll ----
 (function () {
   const nav = document.getElementById('siteNav');
   if (!nav) return;
   window.addEventListener('scroll', () => {
     if (window.scrollY > 60) {
-      nav.style.background = 'rgba(10,10,15,0.97)';
+      nav.style.background = 'rgba(6,9,15,0.98)';
     } else {
-      nav.style.background = 'rgba(10,10,15,0.85)';
+      nav.style.background = 'rgba(6,9,15,0.92)';
     }
   }, { passive: true });
 })();
 
-// ---- Smooth anchor scroll (backup for older browsers) ----
+// ---- Smooth anchor scroll ----
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener('click', (e) => {
     const target = document.querySelector(anchor.getAttribute('href'));
