@@ -275,6 +275,9 @@ body {
   object-fit: cover;
   display: block;
   transition: transform 0.5s ease;
+   .headshot-photo {
+  object-position: center top;
+}
 }
 .photo-frame:hover .row-photo { transform: scale(1.04); }
 .photo-caption-overlay {
