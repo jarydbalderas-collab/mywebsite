@@ -619,13 +619,64 @@ body {
   color: var(--bg);
   border-color: var(--cream);
 }
+/* ---- Favorite Things ---- */
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
 
+.favorite-card {
+  display: block;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg-card);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.favorite-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+  background: var(--navy-mid);
+  border-color: var(--silver);
+}
+
+.favorite-icon {
+  font-size: 42px;
+  margin-bottom: 16px;
+}
+
+.favorite-card h3 {
+  font-family: var(--font-serif);
+  color: var(--cream);
+  margin-bottom: 12px;
+  font-size: 1.4rem;
+}
+
+.favorite-card p {
+  color: var(--silver);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.favorite-card span {
+  color: var(--cream);
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
 /* ---- Mobile ---- */
 @media (max-width: 680px) {
   .hero-name { font-size: 72px; }
   .photo-row { flex-direction: column; }
   .row-photo { height: 240px; }
   .answers-grid { grid-template-columns: 1fr; }
+  .favorites-grid {
+    grid-template-columns: 1fr;
+  }
   .quiz-main-title { font-size: 52px; }
   .site-nav { padding: 0 16px; }
   .section { padding: 60px 16px; }
