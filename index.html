@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--The <title> tag is the name that shows up in the browser tab-->
+  <title>Clint Tuttle's Webpage</title>
+
+  <!--This line connects our HTML page to a separate CSS file called style.css.
+      CSS controls how the page looks (colors, fonts, spacing).
+      Keeping CSS in its own file is a best practice—it keeps HTML clean.-->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!--This is the title at the top of the page-->
+  <h1 class="page-title">Jaryd Balderas' Webpage</h1>
+
+  <!--Three photos in a horizontal row.
+      The middle one is NOT actually me—see the caption below.
+      Lesson for class: alt text should always be honest about what an image is.-->
+  <div class="photo-row">
+    <img class="row-photo"
+         alt="Jaryd standing in front of stairs"
+         src="Balderas_headshot.JPG" />
+    <img class="row-photo"
+         alt="Jaryd and a white boxer in a field)"
+         src="Jaryd&Bear.JPG" />
+
+  </div>
+  <p class="caption">
+    <em>Bolivia salt flats, a guy who is definitely not me, and me playing guitar.
+    Lesson: never trust a photo just because someone labeled it&mdash;always verify the source!</em>
+  </p>
+
+  <!--This is the About Me paragraph-->
+  <p class="about-me">
+    Hello! My name is Jaryd Balderas and I am a student at the McCombs
+    School of Business at UT Austin. I am passionate about business, technology, leadership, and finding ways to grow both personally and professionally. I enjoy taking on new challenges, helping others, and being involved in opportunites that allow me to learn and improve. My goal is to continue developing my skills and use my experiences to build a successful future in business and technology. Hook 'em!
+  </p>
+
+  <hr />
+
+  <!--Work experience as a bulleted list-->
+  <h3>My Work Experience</h3>
+  <ul>
+    <li><strong>McCombs School of Business</strong> &mdash; Lecturer (2011 &ndash; Present)</li>
+    <li><strong>ProximoGen</strong> &mdash; Marketing Consultant (2010 &ndash; 2012)</li>
+    <li><strong>Accenture</strong> &mdash; Manager (2002 &ndash; 2011)</li>
+    <li><strong>McCombs School of Business</strong> &mdash; Academic Peer Advisor (2000 &ndash; 2003)</li>
+  </ul>
+
+  <hr />
+
+  <!--My Favorite Things: a bulleted list of links-->
+  <h3>My Favorite Things</h3>s
+  <ul>
+    <li><a href="https://www.nbc.com/the-good-place" target="_blank">The Good Place</a> &mdash; the best comedy ever made about ethics, the afterlife, and being a better person</li>
+    <li><a href="https://claude.com/product/claude-code" target="_blank">Claude Code</a> &mdash; my favorite AI coding tool, used daily for building projects</li>
+    <li><a href="https://love-a-bull.org/" target="_blank">I love to foster cuddly misunderstood dogs</li>
+  </ul>
+
+  <hr />
+
+  <!--YouTube videos: each one is an iframe.
+      Tip for students: to add your own, go to YouTube > Share > Embed,
+      and copy the FULL iframe tag.-->
+  <h3>Random fun thing about me</h3>
+
+  <div class="video-grid">
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SPLzV0-X0lI?si=DSbAWumEbAyiKUmh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  </div>
+
+  <hr />
+
+  <!--Contact section.
+      The mailto: link opens the user's email program.
+      LinkedIn opens in a new tab.-->
+  <h3>Contact Me</h3>
+  <p class="contact-line">
+    <a href="mailto:clint.tuttle@mccombs.utexas.edu">clint.tuttle@mccombs.utexas.edu</a>
+    &nbsp;|&nbsp;
+    <a href="http://www.linkedin.com/in/clinttuttle" target="_blank">My LinkedIn Profile</a>
+  </p>
+
+  <!--Footer with copyright-->
+  <footer class="page-footer">
+    Copyright &copy; 2026 Clint Tuttle. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
