@@ -280,7 +280,7 @@ body {
   object-position: center 50%;
 }
 .bear-photo {
-  object-position: center 65%;
+  object-position: center 75%;
 }
 .photo-frame:hover .row-photo { transform: scale(1.04); }
 .photo-caption-overlay {
