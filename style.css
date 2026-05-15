@@ -1,30 +1,27 @@
 /* ============================================================
-   Jaryd Balderas – Night Mode
-   Palette:
-     --bg:         #0b0f1a   deep navy night sky
-     --bg-surface: #111827   slightly lighter navy for cards
-     --bg-card:    #161e2e   card / panel navy
-     --border:     #1e2d45   subtle navy border
-     --navy-mid:   #1a2640   mid navy for timelines etc
+   Jaryd Balderas – Pure Navy Night Mode
+   Palette (zero orange):
+     --bg:         #06090f   near-black navy
+     --bg-surface: #0d1321   dark navy surface
+     --bg-card:    #111a2e   card navy
+     --border:     #1b2a45   border navy
+     --navy-mid:   #162038   hover navy
      --cream:      #e8e0d0   moonlight cream (main text)
-     --grey-light: #b8bcc8   moonlight grey (secondary text)
-     --grey-mid:   #7a8299   muted text
-     --accent:     #bf5700   UT burnt orange (kept as CTA accent)
-     --gold:       #c9a84c   warm gold highlight
+     --silver:     #b8bcc8   moonlight silver (secondary)
+     --muted:      #6b7389   muted blue-grey
+     --highlight:  #d4cfc6   bright cream highlight
    ============================================================ */
 
 :root {
-  --bg:         #0b0f1a;
-  --bg-surface: #111827;
-  --bg-card:    #161e2e;
-  --border:     #1e2d45;
-  --navy-mid:   #1a2640;
+  --bg:         #06090f;
+  --bg-surface: #0d1321;
+  --bg-card:    #111a2e;
+  --border:     #1b2a45;
+  --navy-mid:   #162038;
   --cream:      #e8e0d0;
-  --grey-light: #b8bcc8;
-  --grey-mid:   #7a8299;
-  --accent:     #bf5700;
-  --accent-lo:  rgba(191,87,0,0.12);
-  --gold:       #c9a84c;
+  --silver:     #b8bcc8;
+  --muted:      #6b7389;
+  --highlight:  #d4cfc6;
   --font-display: 'Bebas Neue', sans-serif;
   --font-serif:   'Playfair Display', Georgia, serif;
   --font-body:    'DM Sans', sans-serif;
@@ -54,14 +51,14 @@ body {
 .particle {
   position: absolute;
   border-radius: 50%;
-  background: var(--grey-light);
+  background: var(--silver);
   opacity: 0;
   animation: floatUp linear infinite;
 }
 @keyframes floatUp {
   0%   { transform: translateY(100vh) scale(0); opacity: 0; }
-  10%  { opacity: 0.25; }
-  90%  { opacity: 0.08; }
+  10%  { opacity: 0.18; }
+  90%  { opacity: 0.05; }
   100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
 }
 
@@ -71,8 +68,8 @@ body {
   top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 0 32px;
-  background: rgba(11,15,26,0.88);
-  backdrop-filter: blur(18px);
+  background: rgba(6,9,15,0.92);
+  backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   transition: background 0.3s;
 }
@@ -95,7 +92,7 @@ body {
   font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
-  color: var(--grey-mid);
+  color: var(--muted);
   text-decoration: none;
   padding: 7px 16px;
   border-radius: 6px;
@@ -107,13 +104,13 @@ body {
   background: var(--navy-mid);
 }
 .quiz-link {
-  background: var(--accent-lo);
-  color: var(--accent) !important;
-  border: 1px solid rgba(191,87,0,0.25);
+  background: var(--navy-mid);
+  color: var(--silver) !important;
+  border: 1px solid var(--border);
 }
-.quiz-link:hover {
-  background: var(--accent) !important;
-  color: #fff !important;
+.quiz-link:hover, .quiz-link.active {
+  background: var(--border) !important;
+  color: var(--cream) !important;
 }
 
 /* ---- Hero ---- */
@@ -127,8 +124,7 @@ body {
   text-align: center;
   padding: 80px 24px 60px;
   overflow: hidden;
-  /* soft moonlight radial glow from top */
-  background: radial-gradient(ellipse at 50% 0%, rgba(184,188,200,0.06) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(184,188,200,0.04) 0%, transparent 60%);
 }
 
 .hero-bg-text {
@@ -140,7 +136,7 @@ body {
   font-size: clamp(100px, 20vw, 260px);
   letter-spacing: 8px;
   color: transparent;
-  -webkit-text-stroke: 1px rgba(184,188,200,0.05);
+  -webkit-text-stroke: 1px rgba(184,188,200,0.04);
   user-select: none;
   white-space: nowrap;
   pointer-events: none;
@@ -150,12 +146,11 @@ body {
 .hero-content { position: relative; z-index: 1; }
 
 .hero-eyebrow {
-  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 500;
-  letter-spacing: 4px;
+  letter-spacing: 5px;
   text-transform: uppercase;
-  color: var(--grey-light);
+  color: var(--muted);
   margin-bottom: 20px;
   animation: fadeUp 0.8s ease both;
 }
@@ -170,10 +165,9 @@ body {
 }
 
 .hero-name-accent {
-  color: var(--grey-light);
+  color: var(--silver);
   display: inline-block;
-  /* moonlight shimmer */
-  text-shadow: 0 0 80px rgba(232,224,208,0.2), 0 0 160px rgba(184,188,200,0.1);
+  text-shadow: 0 0 80px rgba(184,188,200,0.15), 0 0 200px rgba(184,188,200,0.07);
 }
 
 .hero-tagline {
@@ -181,7 +175,7 @@ body {
   font-size: 15px;
   font-weight: 400;
   letter-spacing: 2px;
-  color: var(--grey-mid);
+  color: var(--muted);
   animation: fadeUp 1s ease 0.3s both;
 }
 
@@ -190,7 +184,7 @@ body {
   margin-top: 44px;
   padding: 14px 38px;
   background: transparent;
-  border: 1.5px solid var(--grey-light);
+  border: 1.5px solid var(--silver);
   color: var(--cream);
   font-family: var(--font-body);
   font-size: 14px;
@@ -199,13 +193,12 @@ body {
   text-transform: uppercase;
   text-decoration: none;
   border-radius: 4px;
-  transition: background 0.25s, color 0.25s, border-color 0.25s, transform 0.2s;
+  transition: background 0.25s, color 0.25s, transform 0.2s;
   animation: fadeUp 1s ease 0.45s both;
 }
 .hero-cta:hover {
   background: var(--cream);
   color: var(--bg);
-  border-color: var(--cream);
   transform: translateY(-3px);
 }
 
@@ -217,7 +210,7 @@ body {
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--grey-mid);
+  color: var(--muted);
   animation: bounce 2s ease-in-out infinite;
   z-index: 1;
 }
@@ -240,12 +233,11 @@ body {
 }
 
 .section-label {
-  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--grey-mid);
+  color: var(--muted);
   margin-bottom: 12px;
 }
 
@@ -303,12 +295,11 @@ body {
 .photo-caption-overlay {
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(11,15,26,0.88));
+  background: linear-gradient(transparent, rgba(6,9,15,0.9));
   color: var(--cream);
   font-size: 13px;
   letter-spacing: 1px;
   padding: 24px 16px 14px;
-  font-family: var(--font-body);
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -316,7 +307,7 @@ body {
 
 .caption {
   text-align: center;
-  color: var(--grey-mid);
+  color: var(--muted);
   font-size: 13px;
   font-style: italic;
   margin-bottom: 36px;
@@ -327,7 +318,7 @@ body {
   position: relative;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-left: 4px solid var(--grey-light);
+  border-left: 4px solid var(--silver);
   border-radius: 10px;
   padding: 40px 44px 36px;
 }
@@ -335,8 +326,8 @@ body {
   font-family: var(--font-serif);
   font-size: 80px;
   line-height: 1;
-  color: var(--grey-light);
-  opacity: 0.15;
+  color: var(--silver);
+  opacity: 0.12;
   position: absolute;
   top: 10px;
   left: 20px;
@@ -349,7 +340,7 @@ body {
   position: relative;
   z-index: 1;
 }
-.about-me strong { color: var(--grey-light); }
+.about-me strong { color: var(--highlight); }
 
 /* ---- Timeline ---- */
 .timeline {
@@ -369,20 +360,19 @@ body {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: var(--grey-light);
-  box-shadow: 0 0 14px rgba(184,188,200,0.35);
-  transition: transform 0.2s;
+  background: var(--silver);
+  box-shadow: 0 0 14px rgba(184,188,200,0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
-.timeline-item:hover .timeline-dot { transform: scale(1.4); }
-.timeline-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+.timeline-item:hover .timeline-dot {
+  transform: scale(1.4);
+  box-shadow: 0 0 22px rgba(184,188,200,0.45);
 }
+.timeline-content { display: flex; flex-direction: column; gap: 2px; }
 .timeline-year {
   font-size: 12px;
   letter-spacing: 1.5px;
-  color: var(--grey-mid);
+  color: var(--muted);
   text-transform: uppercase;
 }
 .timeline-company {
@@ -391,10 +381,7 @@ body {
   font-weight: 700;
   color: var(--cream);
 }
-.timeline-role {
-  font-size: 15px;
-  color: var(--grey-light);
-}
+.timeline-role { font-size: 15px; color: var(--silver); }
 
 /* ---- Fun facts ---- */
 .fun-facts-grid {
@@ -412,16 +399,16 @@ body {
   transition: border-color 0.25s, transform 0.25s;
 }
 .fun-card:hover {
-  border-color: var(--grey-light);
+  border-color: var(--silver);
   transform: translateY(-4px);
 }
 .fun-icon { font-size: 36px; margin-bottom: 10px; }
-.fun-card p { font-size: 14px; color: var(--grey-light); line-height: 1.5; }
+.fun-card p { font-size: 14px; color: var(--silver); line-height: 1.5; }
 
 .fun-description {
   font-family: var(--font-serif);
   font-size: 17px;
-  color: var(--grey-mid);
+  color: var(--muted);
   margin-bottom: 32px;
   line-height: 1.8;
 }
@@ -463,7 +450,7 @@ body {
   transition: border-color 0.25s, transform 0.25s, background 0.25s;
 }
 .contact-card:hover {
-  border-color: var(--grey-light);
+  border-color: var(--silver);
   background: var(--navy-mid);
   transform: translateY(-4px);
   color: var(--cream);
@@ -473,7 +460,7 @@ body {
 /* ---- Footer ---- */
 .page-footer {
   text-align: center;
-  color: var(--grey-mid);
+  color: var(--muted);
   font-size: 12px;
   letter-spacing: 1px;
   padding: 32px 24px 40px;
@@ -494,14 +481,14 @@ body {
 .quiz-hero-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 50% 0%, rgba(184,188,200,0.06) 0%, transparent 65%);
+  background: radial-gradient(ellipse at 50% 0%, rgba(184,188,200,0.04) 0%, transparent 65%);
   pointer-events: none;
 }
 .quiz-eyebrow {
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--grey-mid);
+  color: var(--muted);
   margin-bottom: 14px;
 }
 .quiz-main-title {
@@ -512,12 +499,12 @@ body {
   line-height: 1;
   margin-bottom: 16px;
 }
-.quiz-main-title span { color: var(--grey-light); }
+.quiz-main-title span { color: var(--silver); }
 .quiz-subtitle {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 18px;
-  color: var(--grey-mid);
+  color: var(--muted);
   max-width: 500px;
   margin: 0 auto;
 }
@@ -540,14 +527,14 @@ body {
 }
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--grey-light), var(--cream));
+  background: linear-gradient(90deg, var(--silver), var(--cream));
   border-radius: 20px;
   transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
   width: 0%;
 }
 .progress-label {
   text-align: right;
-  color: var(--grey-mid);
+  color: var(--muted);
   font-size: 12px;
   letter-spacing: 1px;
   margin-bottom: 32px;
@@ -567,7 +554,7 @@ body {
   font-weight: 500;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--grey-mid);
+  color: var(--muted);
   margin-bottom: 12px;
 }
 .question-text {
@@ -584,7 +571,7 @@ body {
 }
 .answer-btn {
   background: var(--bg-surface);
-  color: var(--grey-light);
+  color: var(--silver);
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 16px 18px;
@@ -596,7 +583,7 @@ body {
   transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.15s;
 }
 .answer-btn:hover {
-  border-color: var(--grey-light);
+  border-color: var(--silver);
   background: var(--navy-mid);
   color: var(--cream);
   transform: translateY(-2px);
@@ -618,13 +605,13 @@ body {
   padding: 15px 48px;
   font-family: var(--font-body);
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 1px;
   cursor: pointer;
   transition: opacity 0.2s, transform 0.2s;
 }
-.next-btn:hover:not(:disabled) { opacity: 0.88; transform: translateY(-2px); }
-.next-btn:disabled { opacity: 0.25; cursor: not-allowed; }
+.next-btn:hover:not(:disabled) { opacity: 0.85; transform: translateY(-2px); }
+.next-btn:disabled { opacity: 0.2; cursor: not-allowed; }
 
 /* Result */
 .result-card {
@@ -641,7 +628,7 @@ body {
   font-size: 11px;
   letter-spacing: 4px;
   text-transform: uppercase;
-  color: var(--grey-mid);
+  color: var(--muted);
   margin-bottom: 8px;
 }
 .result-song {
@@ -655,19 +642,19 @@ body {
   font-family: var(--font-serif);
   font-style: italic;
   font-size: 22px;
-  color: var(--grey-light);
+  color: var(--silver);
   margin-bottom: 24px;
 }
 .result-description {
   font-size: 16px;
-  color: var(--grey-mid);
+  color: var(--muted);
   line-height: 1.8;
   max-width: 520px;
   margin: 0 auto 32px;
 }
 .retake-btn {
   background: transparent;
-  border: 1.5px solid var(--grey-light);
+  border: 1.5px solid var(--silver);
   color: var(--cream);
   border-radius: 8px;
   padding: 12px 36px;
@@ -676,7 +663,7 @@ body {
   font-weight: 500;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 .retake-btn:hover {
   background: var(--cream);
