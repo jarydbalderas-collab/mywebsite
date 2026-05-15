@@ -619,6 +619,7 @@ body {
   color: var(--bg);
   border-color: var(--cream);
 }
+
 /* ---- Favorite Things ---- */
 .favorites-grid {
   display: grid;
@@ -668,6 +669,7 @@ body {
   font-weight: bold;
   letter-spacing: 0.5px;
 }
+
 /* ---- Mobile ---- */
 @media (max-width: 680px) {
   .hero-name { font-size: 72px; }
