@@ -277,10 +277,10 @@ body {
   transition: transform 0.5s ease;
 }
 .headshot-photo {
-  object-position: center 50%;
+  object-position: center 60%;
 }
 .bear-photo {
-  object-position: center 70%;
+  object-position: center 72%;
 }
 .photo-frame:hover .row-photo { transform: scale(1.04); }
 .photo-caption-overlay {
